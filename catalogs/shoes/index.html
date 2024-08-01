@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html style="overflow-x: hidden;">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="icon" type="icon" href="https://obuvashka23.ru/img/logoObuvashkaWeb.png">
+	<title>Обувь | Обувашка</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../css/styleModal.css">
+	<link rel="stylesheet" type="text/css" href="../../css/fontstyle.css">
+	<link rel="stylesheet" href="../../css/chief-slider-with-prefixes.min.css">
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="../../resources/components/index.js"></script>
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript" >
+	   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	   m[i].l=1*new Date();
+	   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+	   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+	
+	   ym(94730610, "init", {
+	        clickmap:true,
+	        trackLinks:true,
+	        accurateTrackBounce:true
+	   });
+	</script>
+	<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+	<header class="header">
+		<script>
+			showHeader();
+		</script>
+	</header>
+	<main>
+		<div id="MainLabelDiv">
+			<label class="label-main" id="MainLabel">ОБУВЬ</label> 
+		</div>
+		<p class="p-main">ВСЕ ЧТО НЕОБХОДИМО ДЛЯ РЕБЕНКА</p>
+		<div class="content">
+			<div class="leftPanelMobile"><button class="openFilter" style="margin-right:0">ФИЛЬТРЫ</button></div>
+			<div class="leftPanel" id="ltPl" >
+				<div style="position: sticky; top: 0;">
+					<div style="display: flex;">
+						<div class="leftFilter">
+							<h1>ФИЛЬТРЫ</h1>
+							<div class="priceDiv" style="margin-top:7%;">
+								<h2>Цена</h2>
+								<div style="display: flex;">
+									<input type="text" id="priceUp" value="1" onchange="update()" placeholder="От" style="border-radius: 5px 0px 0px 5px;">
+									<input type="text" id="priceDown" value="5000" placeholder="До"onchange="update()" style="border-radius: 0px 5px 5px 0px;">
+								</div>
+								<div style="margin-top:3%;display: flex;">
+									<button onclick="byPrice(1000)" style="width: 85px;height: 30px;border-radius: 5px;background-color: #fff;margin-bottom: 3%;margin-right: 3%;">От 1000</button>
+									<button onclick="byPrice(2000)" style="width: 85px;height: 30px;border-radius: 5px;background-color: #fff;margin-bottom: 3%;margin-right: 3%;">От 2000</button>
+									<button onclick="byPrice(3000)" style="width: 85px;height: 30px;border-radius: 5px;background-color: #fff;margin-bottom: 3%;margin-right: 3%;">От 3000</button>
+								</div>
+							</div>
+							<div style="margin-top:10%;">
+								<h2>Пол</h2>
+								<select id="gender" onchange="update()">
+									<option value="">Вся обувь</option>
+								</select>
+							</div>
+							<div style="margin-top:10%;">
+								<h2>Размер</h2>
+								<div style="display: flex;">
+									<input value="17" onchange="update()" id="sizeUp" type="text" placeholder="От" style="border-radius: 5px 0px 0px 5px;">
+									<input value="37" onchange="update()" id="sizeDown" type="text" placeholder="До" style="border-radius: 0px 5px 5px 0px;">
+								</div>
+							</div>
+							<div style="margin-top:10%;">
+								<h2>Сезон</h2>
+								<select id="season" onchange="update()">
+									<option value="">Все сезоны</option>
+								</select>
+							</div>
+							<div style="margin-top:10%;">
+								<h2>Тип обуви</h2>
+								<select id="typeShoes" onchange="update()">
+									<option value="">Вся обувь</option>
+								</select>
+							</div>
+							<div style="margin-top:10%;">
+								<h2>Бренд</h2>
+								<select id="brand" onchange="update()">
+									<option value="">Все бренды</option>
+								</select>
+							</div>
+							<div style="margin-top:10%;">
+								<h2>Материал</h2>
+								<select id="materials" onchange="update()">
+									<option value="">Все материалы</option>
+								</select>
+							</div>
+							<div style="margin-top:10%;">
+								<h2>Скидки</h2>
+								<select id="discount" onchange="update()">
+									<option value="0">Все скидки</option>
+									<option value="1">от 5%</option>
+									<option value="2">до 5%</option>
+									<option value="3">от 5% до 10%</option>
+									<option value="4">от 10% до 20%</option>
+									<option value="5">от 20% до 30%</option>
+								</select>
+							</div>
+							<button onclick="clearFilter()" style="background-color: #fff;height: 25px;border-radius: 5px;margin-top: 10%;font-style: italic;font-weight: 800;">Сбросить филтры</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="rightPanel" id="rgPn">
+				<div class="buttonPanel">
+					<div class="containerPanel">
+						<button class="burgerSortBtn" id="burgerSortBtnID">
+							<span></span><span></span><span></span>
+						</button>
+						<div class="buttonPanelSort">
+							<div class="buttonPanelFull">
+								<button onclick="clickSort(0, 'price')">ДЕШЕВЛЕ</button>
+								<button onclick="clickSort(1, 'price')">ДОРОЖЕ</button>
+								<button onclick="clickSort(0, 'popularity')">ПОПУЛЯР.</button>
+								<button onclick="clickSort(0, 'id')">УМОЛЧАН.</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mini-cart" style="margin-bottom: 20px;"></div>
+				<div class="products page" id="pr"></div>
+				<div class="paginator" style="margin-top: 3%;margin-bottom: 3%;font-size: 155%;display: flex;justify-content: center;align-items: center;"></div>
+			</div>
+			<div class="modal" data-modal="1">
+   				<svg class="modal__cross js-modal-close" id="closeModal"  viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 	9.092-9.174-2.832-2.807-9.09 			9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+   					<p class="modal__title">Добавить товар в корзину?</p>
+   					<div>
+   						<select id="choiceSize">
+   						</select>
+   						<select id="countProduct">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+   						</select>
+   					</div>
+   					<div>
+   						<button class="modal__cross js-modal-close" id="closeModalAndSave" >Добавить</button>
+   					</div>
+				</div>
+				<div class="overlay js-overlay-modal"></div>
+			</div>
+		</div>
+	</main>
+	<script>
+		showFooter();
+	</script>
+
+	<script src="https://obuvashka23.ru/js/CatalogShoesPage.js">
+	</script>

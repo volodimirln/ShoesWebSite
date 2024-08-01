@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="icon" type="icon" href="https://obuvashka23.ru/img/logoObuvashkaWeb.png">
+	<title>Детской Обуви | Обувашка</title>
+	<link rel="stylesheet" type="text/css" href="/Сайт/v2/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/Сайт/v2/resources/components/style.css" > 
+	<!-- <script defer type="text/javascript" src="js/menu.js"></script> -->
+	<style>
+	</style>
+		<script src="/Сайт\v2\resources\components\index.js"></script>
+</head>
+<body>
+	<header class="header">
+		<script>
+			showHeader();
+		</script>
+	</header>
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+	document.getElementById("burger").addEventListener("click", function() {
+		document.querySelector("header").classList.toggle("open");
+		let menuHeight = window.innerHeight  +'px';
+		let menuWidth = '-' + window.innerWidth-36 +'px';
+
+            document.querySelector(".menu").style.height = menuHeight;
+            document.querySelector(".menu").style.width = '99%';
+            document.querySelector(".menu").style.left = menuWidth ;
+        
+	})
+})
+</script>
+	<main>
+		<div class="sliderList">
+		</div>
+
+		<div class="stories">
+			<div class="story">
+				<div>
+					<img src="C:/Сайт/v2/img/bear.png" style="width:100%;">
+					<p>АКЦИЯ</p>
+				</div>
+			</div>
+			<div class="story">				
+				<div>
+					<img src="C:/Сайт/v2/img/santa-claus (1).png" style="width:100%;">
+					<p>АКЦИЯ</p>
+				</div>
+			</div>
+			<div class="story">
+				<div>
+					<img src="C:/Сайт/v2/img/santa-claus (2).png" style="width:100%;">
+					<p>АКЦИЯ</p>
+				</div>
+			</div>
+			<div class="story">
+				<div>
+					<img src="C:/Сайт/v2/img/santa-claus.png" style="width:100%;">
+					<p>АКЦИЯ</p>
+				</div>
+			</div>
+			<div class="story">
+				<div>
+					<img src="C:/Сайт/v2/img/bear.png" style="width:100%;">
+					<p>АКЦИЯ</p>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="leftPanel">
+				<button onclick="getApiProductForGirl()">
+					<p>ДЕВОЧКИ</p>
+				</button>
+				<button onclick="getApiProductForBoys()">
+					<p>МАЛЬЧИКИ</p>
+				</button>
+				<button>
+					<p>ДЛЯ ВСЕХ</p>
+				</button>
+				<button>
+					<p>АКЦИИ (Обувь)</p>
+				</button>
+				<button onclick="getApiProduct()">
+					<p>АКЦИИ (Аксессуары)</p>
+				</button>
+			</div>
+			<div class="leftPanelMobile">
+				<button>
+					<p>ВСЁ</p>
+				</button>
+				<button>
+					<p>ДЕВОЧКИ</p>
+				</button>
+				<button>
+					<p>МАЛЬЧИКИ</p>
+				</button>
+				<button>
+					<p>ДЛЯ ВСЕХ</p>
+				</button>
+				<button>
+					<p>АКЦИИ</p>
+				</button>
+			</div>
+			<div class="rightPanel">
+				<label>
+					СОВЕТУЕМ
+				</label>
+				<p>НАШИ ЛУЧШИЕ РЕКОМЕНДАЦИИ</p>
+<style>
+	body{
+		overflow-x: hidden;
+	}
+	
+	.buttonPanelSort{
+		display: none;
+	}
+
+	@media only screen and (max-width: 370px) {
+		body {
+			display: none;
+		}
+	}
+	h4 {
+		text-align: center;
+		margin: 0;
+	}
+</style>
+<script>
+let i = 0;
+ function blockFix() {
+ 	i++;
+ 	if(i%2 == 1){
+ 		document.body.style.overflow = 'hidden';
+ 	}else{
+ 		document.body.style.overflow = 'scroll';
+ 	}
+ 	}	
+</script>
+				<div class="buttonPanel">
+					
+					<div class="containerPanel">
+
+							<button class="burgerSortBtn" style="position: relative;width: 40px;height: 40px;border: none;background-color: transparent;z-index: 1;border-radius: 5px;border: 1px solid #000;">
+								<span></span><span></span><span></span>
+							</button>
+
+						<div class="buttonPanelSort">
+							<div class="buttonPanelFull">
+								<button>ДОРОЖЕ</button>
+								<button>ДЕШЕВЛЕ</button>
+								<button>БОЛЬШЕ</button>
+								<button>МЕНЬШЕ</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="products" id="pr" style="margin-top: 3%;display: flex;flex-wrap: wrap;
+    				justify-content: flex-start;">
+				</div>
+		</div>
+		<script>
+  async function getApiProduct() {
+  		document.getElementById('pr').innerHTML = "";
+  	let res = await fetch('https://api.zolkap.ru/9FC0288B-18EB-4B08-A439-67339FC03C4E/Shoes');
+  	let products = await res.json();
+  	products.forEach((data) =>{
+  		document.getElementById('pr').innerHTML += `<div class="product" >
+						<div class="productImg">
+							<img src="C:/Сайт/v2/img/shoes1.png" style="width:100%;"><h4>
+						` +data.title+`</h4><br>` +data.price+`</div>
+					</div>`;
+  	}); 	
+  }
+    	async function getApiProductForGirl() {
+    		document.getElementById('pr').innerHTML = "";
+  	let res =  await fetch('https://api.zolkap.ru/9FC0288B-18EB-4B08-A439-67339FC03C4E/Shoes?filter=1&priceUp=1&priceDown=5000&size=&season=&typeShoes=&gendr=1');
+  	let products = await res.json();
+  	products.forEach((data) =>{
+  			document.getElementById('pr').innerHTML += `<div class="product" >
+						<div class="productImg">
+							<img src="C:/Сайт/v2/img/products/shoes1.png" style="width:100%;">
+						` +data.title+`<br>` +data.price+`div>
+					</div>`;
+  	}); 	
+  }
+
+  async function getApiProductForBoys() {
+    		document.getElementById('pr').innerHTML = "";
+  	let res =  await fetch('https://api.zolkap.ru/9FC0288B-18EB-4B08-A439-67339FC03C4E/Shoes?filter=1&priceUp=1&priceDown=5000&size=&season=&typeShoes=&gendr=2');
+  	let products = await res.json();
+  	products.forEach((data) =>{
+  			document.getElementById('pr').innerHTML += `<div class="product" >
+						<div class="productImg">
+							<img src="C:/Сайт/v2/img/products/shoes1.png" style="width:100%;">
+						` +data.title+`<br>` +data.price+`</div>
+					</div>`;
+  	}); 	
+  }
+  getApiProduct();
+ 
+    </script>
+	</main>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script>
+
+$(document).ready(function(){
+  $(".burgerSortBtn").click(function(){
+    $(".buttonPanelSort").slideToggle();
+  });
+});
+	</script>
+	<script>
+			showFooter();
+	</script>
+</body>
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html style="overflow-x: hidden;">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Уценка | Обувашка</title>
+	<link rel="icon" type="icon" href="https://obuvashka23.ru/img/logoObuvashkaWeb.png">
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../css/fontstyle.css">
+	<link rel="stylesheet" href="../../css/chief-slider-with-prefixes.min.css">
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="../../resources/components/index.js"></script>
+
+</head>
+<body>
+    <header class="header">
+        <script>
+            showHeader();
+        </script>
+    </header>
+<main>
+	<style>
+		.leftFilter{
+			width: 100%;
+    background-color: #90C7CA; /*f7e8f0*/
+    border-radius: 15px;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    padding-top: 8%;
+    padding-right: 5%;
+        padding-left: 5%;
+            padding-bottom: 1%;
+		}
+		.leftFilter h1{
+			font-size: 20pt;
+    margin: 0;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 700;
+    text-align: center;
+        font-style: italic;
+		}
+		.leftFilter h2{
+			font-size: 18pt;
+    margin: 0;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 500;
+    text-align: left;
+        font-style: italic;
+		}
+		.leftFilter input{
+			width: 50%;
+    background-color: #f1c6de00;
+    border-color: #0009;
+    border-style: solid;
+    border-width: 1px;
+    height: 27px;
+    margin-top: 3%;
+    font-size: 110%;
+    padding-left: 7px;
+		}
+		.priceDiv button{
+			width: 85px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 3%;
+    margin-right: 3%;
+		}
+		.leftFilter select{
+			width: 100%;
+    		height: 27px;
+    		border-color: #fff;
+    		border-radius: 5px;
+    		margin-top: 3%;
+    		font-size: 95%;
+    		cursor: pointer;
+		}
+.leftPanelMobile{
+	height: 100%;
+}
+@media only screen and (max-width: 530px){
+	.rightPanel label {
+    font-size: 45pt;
+}
+}
+
+@media only screen and (max-width: 610px){
+	.rightPanel p {
+    font-size: 12pt;
+}
+}
+@media only screen and (max-width: 530px){
+	.buttonPanel button {
+    width: 85px;
+    font-size: 8pt;
+    padding: 0;
+    height: 25px;
+}
+}
+@media only screen and (max-width: 767px){
+	.leftPanelMobile button {
+    height: 30px;
+    /* font-size: 14pt; */
+    font-weight: 700;
+}
+}
+/* Стили для подложки */
+
+.overlay {
+   
+   /* Скрываем подложку  */
+   opacity: 0;
+   visibility: hidden;
+   
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, .5);
+   z-index: 20;
+   transition: .3s all;
+}
+
+
+/* Стили для модальных окон */
+
+.modal {
+   
+   /* Скрываем окна  */
+   opacity: 0;
+   visibility: hidden;
+   
+   
+   /*  Установаем ширину окна  */
+   width: 100%;
+   max-width: 500px;
+   
+   /*  Центрируем и задаем z-index */
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 30; /* Должен быть выше чем у подложки*/
+   
+   /*  Побочные стили   */
+   box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2); 
+   text-align: center;
+   padding: 30px;
+   border-radius: 3px;
+   background-color: #fff;
+   transition: 0.3s all;
+}
+
+
+/* Стили для активных классов подложки и окна */
+
+.modal.active,
+.overlay.active{
+   opacity: 1;
+   visibility: visible;
+}
+
+
+/* Стили для кнопки закрытия */
+
+.modal__cross {
+   width: 15px;
+   height: 15px;
+   position: absolute;
+   top: 20px;
+   right: 20px;
+   fill: #444;
+   cursor: pointer;
+}
+	</style>
+				<label class="label-main">
+					УЦЕНКА
+				</label>
+				<p class="p-main">ВСЕ ЧТО НЕОБХОДИМО ДЛЯ РЕБЕНКА</p>
+	<div class="content">
+		<div class="leftPanelMobile">
+				<button class="openFilter" style="margin-right: 0;">ФИЛЬТРЫ</button>
+			</div>
+				<div class="leftPanel" id="ltPl" style="height:1000px;">
+					<div  style="position: sticky; top: 0;">
+						<div style="display: flex;">
+							<div class="leftFilter" style="margin-top:5%;">
+					<h1>ФИЛЬТРЫ</h1>
+					<div class="priceDiv" style="margin-top:7%;">
+						<h2>Цена</h2>
+						<script>
+						function byPrice(byInt){
+							let priceUp = document.getElementById("priceUp");
+							priceUp.value = byInt;
+							getApiProduct();
+						}
+					</script>
+						<div style="display: flex;">
+							<input type="text"  id="priceUp" value="1" onchange="getApiProduct()" placeholder="От" style="border-radius: 5px 0px 0px 5px;">
+						<input type="text" id="priceDown" value="5000" placeholder="До" onchange="getApiProduct()" style="border-radius: 0px 5px 5px 0px;">
+						</div>
+						
+						<div style="margin-top:3%;">
+							<button onclick="byPrice(1000)">От 1000</button>
+							<button onclick="byPrice(2000)">От 2000</button>
+							<button onclick="byPrice(3000)">От 3000</button>
+						</div>
+					</div>
+					
+					<div style="margin-top:10%;">
+						<h2>Пол</h2>
+						<select id="gender" onchange="getApiProduct()">
+							<option value="">Для всех</option>
+						</select>
+					</div>
+<div style="margin-top:10%;">
+						<h2>Размер</h2>
+						<div style="display: flex;">
+							<input value="17" onchange="getApiProduct()" id="sizeUp" type="text" placeholder="От" style="border-radius: 5px 0px 0px 5px;">
+							<input value="37" onchange="getApiProduct()" id="sizeDown" type="text" placeholder="До" style="border-radius: 0px 5px 5px 0px;">
+						</div>
+					</div>
+<div style="margin-top:10%;">
+						<h2>Сезон</h2>
+						<select id="season" onchange="getApiProduct()">
+							<option value="">Все сезоны</option>
+						</select>
+					</div>
+<div style="margin-top:10%;">
+						<h2>Тип обуви</h2>
+						<select id="typeShoes" onchange="getApiProduct()">
+							<option value="">Вся обувь</option>
+						</select>
+					</div>
+					<div style="margin-top:10%;">
+						<h2>Бренд</h2>
+						<select id="brand" onchange="getApiProduct()">
+							<option value="">Все бренды</option>
+						</select>
+					</div>
+					<div style="margin-top:10%;">
+						<h2>Материал</h2>
+						<select id="materials" onchange="getApiProduct()">
+							<option value="">Все материалы</option>
+						</select>
+					</div>
+					<div style="margin-top:10%;">
+						<h2>Скидки</h2>
+						<select id="discount" onchange="getApiProduct()">
+							<option value="0">Все скидки</option>
+							<option value="1">до 5%</option>
+							<option value="2">от 5% до 10%</option>
+							<option value="3">от 10% до 20%</option>
+							<option value="4">от 20% до 30%</option>
+						</select>
+					</div>
+					<button onclick="clearFilter()" style="background-color: #fff;height: 25px;border-radius: 5px;margin-top: 10%;
+					font-style: italic;font-weight: 800;">Сбросить филтры</button>
+					<script>
+						function clearFilter(){
+							let genderSelecter = document.getElementById('gender');
+							let seasonSelecter = document.getElementById('season');
+							let typeShoesSelecter = document.getElementById('typeShoes');
+							let brandSelecter = document.getElementById('brand');
+							let discountSelecter = document.getElementById('discount');
+							let materialsSelecter = document.getElementById('materials');
+
+							
+							byPrice(1000);
+							genderSelecter.value = "";
+							seasonSelecter.value = "";
+							typeShoesSelecter.value = "";
+							brandSelecter.value = "";
+							discountSelecter.value = "0";
+							materialsSelecter.value = "";
+						}
+					</script>
+				</div>
+						</div>
+				
+					</div>				 
+			</div>
+			<script>
+			// async function getPriceShoes(){
+			// 	let res = await fetch('https://api.obuvashka23.ru/Shoes/shoesBorderPrice');
+  			// 	let price = await res.json();
+  			// 	price.forEach((data) =>{
+			// 		let priceUp =	document.getElementById("priceUp");
+			// 		let priceDown =	document.getElementById("priceDown");
+
+			// 		priceDown.value = data.maxprice;
+			// 		priceUp.value = data.minprice;
+  			// 	}); 
+
+			// 	let res1 = await fetch('https://api.obuvashka23.ru/Shoes/shoesSizeBorderPrice');
+  			// 	let size = await res1.json();
+  			// 	size.forEach((data) =>{
+			// 		let sizeUp = document.getElementById("sizeUp");
+			// 		let sizeDown = document.getElementById("sizeDown");
+
+			// 		sizeUp.value = data.minsize;
+			// 		sizeDown.value = data.maxsize;
+  			// 	}); 
+			// 	}
+			getPriceShoes();
+			function getPriceShoes(){
+				var request = new XMLHttpRequest();
+				request.open('GET', 'https://api.obuvashka23.ru/Shoes/shoesBorderPrice', false);
+				request.send(null);
+
+				let result = "";
+				if (request.status === 200) {
+					let arrayResponse = JSON.parse(request.responseText);
+					if(arrayResponse != null){
+						let priceUp =	document.getElementById("priceUp");
+				 		let priceDown =	document.getElementById("priceDown");
+
+						priceDown.value = arrayResponse[0].maxprice;
+						priceUp.value = arrayResponse[0].minprice;
+					}
+				}
+				 request = new XMLHttpRequest();
+				request.open('GET', 'https://api.obuvashka23.ru/Shoes/shoesSizeBorderPrice', false);
+				request.send(null);
+
+				 result = "";
+				if (request.status === 200) {
+					let arrayResponse = JSON.parse(request.responseText);
+					if(arrayResponse != null){
+								let sizeUp = document.getElementById("sizeUp");
+			 		let sizeDown = document.getElementById("sizeDown");
+
+			 		sizeUp.value = arrayResponse[0].minsize;
+			 		sizeDown.value = arrayResponse[0].maxsize;
+					}
+				}
+				 
+			}
+
+				
+			</script>
+			<div class="rightPanel" id="rgPn">
+				<div class="buttonPanel">
+					
+					<div class="containerPanel">
+
+							<button class="burgerSortBtn" id="burgerSortBtnID">
+								<span></span><span></span><span></span>
+							</button>
+
+						<div class="buttonPanelSort">
+							<div class="buttonPanelFull">
+								<button onclick="clickSort(0, 'price')">ДЕШЕВЛЕ</button>
+								<button onclick="clickSort(1, 'price')">ДОРОЖЕ</button>
+								<button onclick="clickSort(0, 'popularity')">ПОПУЛЯР.</button>
+								<button onclick="clickSort(0, 'id')">УМОЛЧАН.</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="mini-cart" style="margin-bottom: 100px;">
+    			</div> -->
+				<div class="products page" id="pr">
+				</div>
+				<div class="paginator" style="margin-top: 3%;margin-bottom: 3%;font-size: 155%;display: flex;justify-content: center;align-items: center;"></div>
+		</div>
+		
+
+<div class="modal" data-modal="1">
+   <svg class="modal__cross js-modal-close" id="closeModal" onclick="closeModal()"  viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+   <p class="modal__title">Товар добавлен в корзину</p>
+   <select id="choiceSize">
+   </select>
+   <select id="countProduct">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+   </select>
+</div>
+<div class="overlay js-overlay-modal"></div>
+
+	</main>
+		<script>
+		showFooter();
+		</script>
+		<script>
+var main_page;
+var div_num;
+var cnt;
+
+let lastFunCalled;
+let sortType = '';
+let sortDiscountsUp = 0;
+let sortDiscountsDown = 0.5;
+
+
+
+function discountSort(){
+	switch (document.getElementById('discount').value) {
+  case "1":
+    sortDiscountsUp = 0.0;
+    sortDiscountsDown = 0.06;
+    break;
+  case "2":
+    sortDiscountsUp = 0.05;
+    sortDiscountsDown = 0.10;
+    break;
+    case "3":
+    sortDiscountsUp = 0.10;
+    sortDiscountsDown = 0.20;
+    break;
+    case "4":
+    sortDiscountsUp = 0.20;
+    sortDiscountsDown = 0.30;
+    break;
+    case "0":
+    sortDiscountsUp = 0.0;
+    sortDiscountsDown = 0.50;
+    break;
+    default:
+    	sortDiscountsUp = 0.0;
+    sortDiscountsDown = 0.5;
+}
+}
+
+	let firstProduct = 0; 
+	let lastProduct = 12;
+	let i = 0;
+	let id = "page0";
+
+	function clicToNextPage(){
+		i++;
+		firstProduct =  (i * 12) + 1;
+		getApiProduct();
+
+	}
+	function clicToOldPage(){
+		i--;
+		firstProduct =  (i * 12) + 1;
+		getApiProduct();
+
+	}
+
+	async function  getApiType(){
+		let option = document.getElementById("typeShoes");
+		let res = await fetch('https://api.obuvashka23.ru/Type?typeObject=shoes');
+		let type = await res.json();
+		console.log(type);
+		type.forEach((data) =>{
+		option.innerHTML += `<option value="`+data.id+`">`+data.title+`</option>`;
+		});
+
+	}
+	getApiType();
+
+	async function  getApiSeason(){
+		let option = document.getElementById("season");
+		let res = await fetch('https://api.obuvashka23.ru/Seasons');
+		let type = await res.json();
+		console.log(type);
+		type.forEach((data) =>{
+		option.innerHTML += `<option value="`+data.id+`">`+data.title+`</option>`;
+		});
+
+	}
+	getApiSeason();
+
+	async function  getApiBrand(){
+		let option = document.getElementById("brand");
+		let res = await fetch('https://api.obuvashka23.ru/Brands');
+		let type = await res.json();
+		console.log(type);
+		type.forEach((data) =>{
+		option.innerHTML += `<option value="`+data.id+`">`+data.title+`</option>`;
+		});
+
+	}
+	getApiBrand();
+
+	async function  getApiGender(){
+		let option = document.getElementById("gender");
+		let res = await fetch('https://api.obuvashka23.ru/Genders');
+		let type = await res.json();
+		console.log(type);
+		type.forEach((data) =>{
+		option.innerHTML += `<option value="`+data.id+`">`+data.gender+`</option>`;
+		});
+
+	}
+	getApiGender();
+
+	async function  getApiMaterials(){
+		let option = document.getElementById("materials");
+		let res = await fetch('https://api.obuvashka23.ru/Materials');
+		let type = await res.json();
+		console.log(type);
+		type.forEach((data) =>{
+		option.innerHTML += `<option value="`+data.id+`">`+data.title+`</option>`;
+		});
+
+	}
+	getApiMaterials();
+
+  async function getApiProduct() {
+  	let count = 0;
+  	discountSort();
+  	lastFunCalled = arguments.callee.name;
+  		document.getElementById('pr').innerHTML = "";
+  	let res = await fetch('https://api.obuvashka23.ru/Shoes/filter?markdown=1&gender='+document.getElementById('gender').value+'&season='+document.getElementById('season').value+'&typeShoes='+document.getElementById('typeShoes').value+'&brand='+document.getElementById('brand').value+'&materials='+document.getElementById('materials').value+'&outmaterial=&priceUp='+document.getElementById('priceUp').value+'&priceDown='+document.getElementById('priceDown').value +''+sortType+'&discountUp='+sortDiscountsUp+'&discountDown='+sortDiscountsDown+'&sizeUp='+document.getElementById('sizeUp').value +'&sizeDown='+document.getElementById('sizeDown').value+"&limitRec=12&оffsetRec=" + firstProduct);
+  	let products = await res.json();
+  	products.forEach((data) =>{  		
+		document.getElementById('pr').innerHTML += showProductShoes(data.title, data.price, data.gender, data.season, data.type, data.brands, count, data.discount, data.id, data.vendorCode);	
+  	
+  	}); 
+	let cnt1 = 0;
+	  let resCount = await fetch('https://api.obuvashka23.ru/Shoes/filter?markdown=1&gender='+document.getElementById('gender').value+'&season='+document.getElementById('season').value+'&typeShoes='+document.getElementById('typeShoes').value+'&brand='+document.getElementById('brand').value+'&materials=&outmaterial=&priceUp='+document.getElementById('priceUp').value+'&priceDown='+document.getElementById('priceDown').value +''+sortType+'&discountUp='+sortDiscountsUp+'&discountDown='+sortDiscountsDown+'&sizeUp='+document.getElementById('sizeUp').value +'&sizeDown='+document.getElementById('sizeDown').value+"&count=1");
+  	let productsCount = await resCount.json();
+  	productsCount.forEach((data) =>{
+		  count = data.count;
+  	}); 
+
+
+  	var counts = count; //всего 
+cnt = 12; //отображение
+var cnt_page = Math.ceil(counts / cnt); 
+
+var paginator = document.querySelector(".paginator");
+var page = "";
+for (var i = 0; i < cnt_page; i++) {
+  page += `<span onclick="pagination(event)"  data-page=` + i * cnt + `  id="page` + i  + `">` + (i + 1) + `</span>`;
+}
+paginator.innerHTML = page;
+tyr();
+
+
+
+if ( window.innerWidth > 966) {
+ 	let we = document.getElementById('rgPn').scrollHeight;
+ 		let re = document.getElementById('pr').scrollHeight;
+ 		let yt =  re;
+		document.getElementById('ltPl').style.height = yt+"px";
+ }
+
+  }
+
+  function clicToSelectPage(l){
+		firstProduct =  (l * 12);
+		getApiProduct();
+	}
+
+	function tyr(){
+		main_page = document.getElementById(id);
+   		main_page.classList.add("paginator_active");
+	}
+
+   function pagination(event) {
+  	var e = event || window.event;
+  	var target = e.target;
+	 id = target.id;
+	var num_ = id.substr(4);
+	clicToSelectPage(num_);
+	main_page = document.getElementById(id);
+   	main_page.classList.add("paginator_active");
+	   window.scroll({
+  left: 0,
+  top: 0, 
+  behavior: 'auto'
+});
+
+
+ }
+
+
+
+function clickSort(intTypeSort, field){
+sortType = '&sortType='+intTypeSort+'&sortField='+field;
+  	if(lastFunCalled == "getApiProduct"){
+  		getApiProduct();
+  	}
+  }
+
+  getApiProduct();
+  getPriceShoes();
+ 
+    </script>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script>
+
+$(document).ready(function(){
+  $(".burgerSortBtn").click(function(){
+    $(".buttonPanelSort").slideToggle();
+  });
+});
+
+$(document).ready(function(){
+  $(".openFilter").click(function(){
+    $("#ltPl").slideToggle();
+  });
+});
+//openFilter
+
+if ( window.innerWidth < 966) {
+	$('.leftPanel').addClass('leftPanelMobile');
+$('.leftPanelMobile').removeClass('leftPanel');
+$("#ltPl").hide();
+}
+
+
+	</script>
+	<script>
+   var cart = [];
+		
+  async function getChoiceSize(id){
+	let choiceSize = document.getElementById('choiceSize');
+	choiceSize.innerHTML="";
+
+let resSize = await  fetch('https://api.obuvashka23.ru/ShoesSize?idShoes='+id);
+let size = await  resSize.json();
+size.forEach((data) =>{
+count = data.count;
+choiceSize.innerHTML += "<option value='"+data.size+"'>Размер обуви: "+data.size+"</option>";
+}); 
+  }
+
+  let idWn = 0;
+  let nameWn = "";
+  let priceWn = 0;
+  let size = 0;
+  let vendorCodeWn = "";
+  var cart = new Map(); 
+
+    function addToCart(id, name, price, vendorCode) {
+		
+		
+		
+		let div = document.getElementsByClassName("js-open-modal")[idElement];	
+		if(div.classList.contains('active') == false){
+			getChoiceSize(id);
+			openModalWindows();
+
+			idWn = id;
+  			nameWn = name;
+   			priceWn = price;
+   			vendorCodeWn = vendorCode;
+		}
+    }
+
+	
+
+function openModalWindows(){
+	var overlay      = document.querySelector('.js-overlay-modal');
+	var modalElem = document.querySelector('.modal[data-modal="1"]');
+	
+	var close = false;
+
+   modalElem.classList.add('active');
+   overlay.classList.add('active');
+
+   var  closeModal = document.getElementById('closeModal');
+   closeModal.click = function(){
+   }
+
+
+
+return close;
+}
+let dataLoad = {};
+function closeModal(){
+	var  closeButtons = document.querySelectorAll('.js-modal-close');
+	var overlay      = document.querySelector('.js-overlay-modal');
+	var  closeModal = document.getElementById('closeModal');
+	let choiceSize = document.getElementById('choiceSize');
+	size = choiceSize.options[choiceSize.selectedIndex].value;
+	let choiceCountProduct = document.getElementById('countProduct');
+	let countProduct = choiceCountProduct.options[choiceCountProduct.selectedIndex].value;
+
+
+
+closeButtons.forEach(function(item){
+item.addEventListener('click', function(e) {
+   var parentModal = this.closest('.modal');
+
+   parentModal.classList.remove('active');
+   overlay.classList.remove('active');
+
+
+});
+
+});
+
+
+dataLoad = JSON.parse(localStorage.getItem('cart'));
+
+if(dataLoad != null){
+	
+	for(let value of dataLoad){
+ 	cart.set(value[0], value[1]);
+
+  }
+ }
+ console.log(cart);
+ if (cart.has(vendorCodeWn)==false) {
+
+elements = [];
+
+elements.push(idWn);
+elements.push(nameWn);
+elements.push(priceWn);
+elements.push(size);
+elements.push(document.getElementById("countProduct").value);
+elements.push(3);
+
+ 
+cart.set(vendorCodeWn, elements);
+
+}
+else {
+
+}
+
+
+
+
+
+$('.mini-cart').html(showCartElement(cart));
+
+
+/*****************************/
+let cartArray = [];
+cartArray = Array.from(cart, ([name, value]) => ({ name, value }));
+var cartMap = new Map();
+cartMap = Array.from(cartArray, ({name, value}) => ([ name, value ]));
+console.log(cartMap[0][1]);
+/*****************************/
+
+//console.log(cart);
+
+localStorage.setItem('cart', JSON.stringify(cartMap));
+countProductInCart();
+
+
+}
+
+countProductInCart();
+
+</script>

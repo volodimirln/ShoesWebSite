@@ -1,0 +1,588 @@
+:root {
+    --primary-color: #90e0ef;
+    --secondary-color: #00b4d5;
+    --tertiary-color: #0077b6;
+    --yellow-color: #ffb900;
+    --gray-color: #808080;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+}
+
+.submini-cart label {
+    margin: 0;
+    font-family: 'Source Sans 3';
+    font-style: italic;
+    font-weight: bolder;
+}
+
+.containerBox {
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxProduct {
+	border: 3px solid #2F70AF;
+	border-radius: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px 10px rgb(0, 0, 0, 20%);
+    padding: 45px;
+    margin: 15px 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    "images info"
+    "images description";
+    grid-gap: 35px;
+}
+
+.boxProduct .images {
+    grid-area: images;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    "active active active active"
+    "idle idle idle idle";
+    grid-gap: 5px;
+}
+
+.boxProduct .images .img-holder img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    draggable: false;
+}
+
+.boxProduct .images .img-holder.active {
+    grid-area: active;
+    margin-bottom: 10%;
+}
+
+.boxProduct .images .img-holder:not(.active):hover {
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+.boxProduct .basic-info {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.boxProduct .basic-info h3 {
+	font-size: 38px;
+    line-height: 1.5;
+}
+
+/*.boxProduct .basic-info .rate {
+    color: var(--yellow-color);
+}*/
+
+.boxProduct .basic-info span {
+    font-weight: 800;
+    font-size: 25px;
+    margin-top: -2%;
+}
+
+/*.boxProduct .basic-info .options a {
+    color: white;
+   	background-color: #00457E;
+    display: inline-block;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 5px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.boxProduct .basic-info .options a:hover {
+    background-color: var(--tertiary-color);
+}*/
+
+.boxProduct .basic-info .options a {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin: 2px 0;
+    border: solid 1px transparent;
+    border-radius: 7px;
+    padding: 0.5em 1em;
+    color: #fff;
+    background-color: #00457E;
+    transition: 0.3s;
+}
+
+.boxProduct .basic-info .options a:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+}
+
+.boxProduct .basic-info .options a:hover, .boxProduct .basic-info .options a:focus {
+    color: #00457E;
+    background-color: transparent;
+    border-color: currentColor;
+}
+
+.boxProduct .basic-info .options a::-moz-focus-iner {
+    border: none;
+}
+
+.boxProduct .description {
+    grid-area: description;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.boxProduct .description h4 {
+	font-size: 22px;
+    line-height: 1;
+}
+
+.boxProduct .description p {
+    /*color: var(--gray-color);*/
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.boxProduct .description .features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--gray-color);
+}
+
+.boxProduct .features {
+	padding: 10px;
+    gap: 15px;
+    grid-column: 3/1;
+    border: 0em solid #000;
+	border-radius: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px rgb(0, 0, 0, 20%);
+}
+
+.boxProduct .features h4 {
+	font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.boxProduct .features tbody {
+	display: flex;
+}
+
+.boxProduct .features th, td {
+	padding: 10px 0px 10px 0px;
+	font-size: 20px;
+}
+
+.boxProduct .features td:nth-child(odd) {
+	background-color: #89b4c5;
+	/*border-radius: 10px 0px 0px 10px;
+	padding: 10px;*/
+}
+
+.boxProduct .features .trBorderFirst td {
+	border-radius: 10px 0px 0px 10px;
+	padding: 10px;
+}
+
+.boxProduct .features .trBorderSecond td {
+	border-radius: 0px 10px 10px 0px;
+	padding: 10px;
+}
+
+.boxProduct .features td:nth-child(even) {
+	background-color: #FFF;
+}
+
+.boxProduct .features tr {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 100%;
+}
+
+.boxProduct .features td {
+	border: 0px solid red;
+}
+
+.boxProduct .description .features i {
+    margin-right: 5px;
+}
+
+.boxProduct .description .features .fa-circle-check {
+    color: var(--tertiary-color);
+}
+
+.boxProduct .description .features .fa-circle-xmark {
+    color: var(--yellow-color);
+}
+
+.boxProduct .description .social {
+    list-style: none;
+    display: flex;
+}
+
+.boxProduct .description .social a {
+    margin-right: 15px;
+    color: var(--gray-color);
+}
+
+.boxProduct .description .social a:hover {
+    color: var(--secondary-color);
+}
+
+@media (max-width: 1535px) {
+	.boxProduct .description p {
+		font-size: 17px;
+	}
+}
+
+@media (max-width: 1376px) {
+	.boxProduct .basic-info .options a {
+		padding: 15px 17px;
+		font-size: 18px;
+	}
+	.boxProduct .basic-info h3 {
+		font-size: 35px;
+	}
+	.boxProduct .basic-info span {
+		font-size: 23px;
+	}
+	.boxProduct .description p {
+		font-size: 16px;
+	}
+	.boxProduct .features th, td {
+		padding: 10px 0px 10px 0px;
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 991px) {
+    .boxProduct {
+        /*width: 750px;
+        grid-template-areas: 
+        "info info"
+        "images description";*/
+    }
+    .boxProduct .basic-info .options a {
+        /*padding: 8.5px 12px;*/
+    }
+}
+
+@media screen and (max-width: 991px) {
+    /*.boxProduct .basic-info span {
+        position: absolute;
+        align-self: flex-end;
+    }*/
+    /*.boxProduct .basic-info .options {
+        position: absolute;
+        align-self: flex-end;
+        margin-top: 40px;
+    }*/
+    .boxProduct {
+        /*width: 600px;*/
+        width: 100%;
+        grid-template-areas: 
+        "images info"
+        "description description";
+    }
+    .boxProduct .basic-info {
+        margin-left: 20%;
+    }
+    .boxProduct .basic-info .options a {
+		padding: 12px 10px;
+		font-size: 16px;
+	}
+	.boxProduct .basic-info h3 {
+		font-size: 32px;
+	}
+	.boxProduct .basic-info span {
+		font-size: 23px;
+	}
+	.boxProduct .description p {
+		font-size: 18px;
+	}
+	.boxProduct .features th, td {
+		padding: 10px 0px 10px 0px;
+		font-size: 18px;
+	}
+    .boxProduct .images {
+        gap: 3px;
+        width: 120%;
+    }
+    .boxProduct .images .img-holder img {
+        border-radius: 5px;
+    }
+    .boxProduct .basic-info .options a:nth-child(2n + 0) {
+        margin-top: 10px;
+    }
+}
+
+/*@media (max-width: 805px) {
+	.boxProduct .basic-info .options a:nth-child(2n + 0) {
+		margin-top: 10px;
+	}
+}*/
+
+@media (max-width: 768px) {
+    /*.boxProduct {
+        width: 600px;
+        width: 100%;
+        grid-template-areas: 
+        "images info"
+        "description description";
+    }*/
+    .boxProduct {
+    	display: block;
+        width: 100%;
+        min-height: 100vh;
+        padding: 35px;
+        margin: 0;
+        /*grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "images"
+        "info"
+        "description";*/
+    }
+    .boxProduct .images {
+        gap: 3px;
+        width: 100%;
+    }
+    .boxProduct .images .img-holder img {
+        border-radius: 5px;
+    }
+    .boxProduct .basic-info {
+        margin-left: 0%;
+    }
+    .boxProduct .basic-info h3 {
+    	font-size: 30px;
+	}
+	.boxProduct .basic-info span {
+		font-size: 22px;
+	}
+	.boxProduct .description h4 {
+	    font-size: 22px;
+	    line-height: 1;
+	    margin: 15px 0px 5px 0px;
+	}
+	.boxProduct .features {
+		margin: 15px 0px 0px 0px;
+	}
+}
+
+@media (max-width: 640px) {
+    .boxProduct {
+        width: 100%;
+        min-height: 100vh;
+        padding: 15px;
+        margin: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "images"
+        "info"
+        "description";
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    .boxProduct .features .trBorderSecond .infoMaterialLiningValue {
+        height: 55px;
+    }
+    .boxProduct .features .trBorderFirst .infoMaterialLining {
+        height: 55px;
+    }
+}
+
+@media (max-width: 480px) {
+	.boxProduct .features tr, td {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 443px) {
+    .boxProduct .features {
+        padding: 5px;
+    }
+	.boxProduct .features .trBorderFirst .infoMaterialLining {
+		height: 50px;
+	}
+	.boxProduct .features .trBorderSecond .infoMaterialLiningValue {
+		height: 50px;
+	}
+    .boxProduct .features .trBorderFirst .infoMaterialInsole {
+        height: 50px;
+    }
+    .boxProduct .features .trBorderSecond .infoMaterialInsoleValue {
+        height: 50px;
+    }
+    .boxProduct .features .trBorderFirst .infoMaterialUp {
+        height: 50px;
+    }
+    .boxProduct .features .trBorderSecond .infoMaterialUpValue {
+        height: 50px;
+    }
+}
+
+@media (max-width: 400px) {
+	.boxProduct .features th, td {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 385px) {
+	.boxProduct {
+		padding: 7px;
+        box-shadow: none;
+	}
+	.boxProduct .basic-info h3 {
+		font-size: 26px;
+	}
+	.boxProduct .basic-info span {
+		font-size: 20px;
+	}
+	.boxProduct .description h4 {
+    	font-size: 20px;
+	}
+	.boxProduct .description p {
+    	font-size: 17px;
+	}
+	.boxProduct .features h4 {
+		padding: 0px 0px 0px 5px;
+	}
+	.boxProduct .features .trBorderFirst td {
+		padding: 7px;
+	}
+	.boxProduct .features .trBorderSecond td {
+		padding: 7px;
+	}
+}
+/*select*/
+
+.namelabel-select {
+	margin: 15px 0px 15px 0px;
+	font-size: 20px;
+}
+
+#standard-select {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	outline: none;
+}
+
+:root {
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+
+select {
+  // A reset of styles, including removing the default dropdown arrow
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  
+
+
+  // Stack above custom arrow
+  z-index: 1;
+
+  // Remove dropdown arrow in IE10 & IE11
+  // @link https://www.filamentgroup.com/lab/select-css.html
+  &::-ms-expand {
+    display: none;
+  }
+
+  // Remove focus outline, will add on alternate element
+  outline: none;
+}
+
+.select {
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  select,
+  &::after {
+    grid-area: select;
+  }
+
+  min-width: 15ch;
+  max-width: 20ch;
+
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+
+  // Optional styles
+  // remove for transparency
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+
+  // Custom arrow
+  &:not(.select--multiple)::after {
+    content: "";
+    justify-self: end;
+    width: 0.8em;
+    height: 0.5em;
+    background-color: var(--select-arrow);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  }
+}
+
+// Interim solution until :focus-within has better support
+select:focus + .focus {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 2px solid var(--select-focus);
+  border-radius: inherit;
+}
+
+/*Подвал*/
+footer {
+	margin-top: 110px;
+}

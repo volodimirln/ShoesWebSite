@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html style="overflow-x: hidden;">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="icon" type="icon" href="https://obuvashka23.ru/img/logoObuvashkaWeb.png">
+	<title>Оформление | Обувашка</title>
+	<link rel="stylesheet" type="text/css" href="../../css/styleOrderPage.css">
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../css/fontstyle.css">
+	<script src="https://code.jquery.com/jquery-1.9.0.min.js"></script>
+	<script src="https://obuvashka23.ru/jquery.maskedinput-master/src/jquery.maskedinput.js"></script>
+	<script src="../resources/components/index.js"></script>
+</head>
+
+<body>
+	<style type="text/css">
+		.form_input.error {
+			border-color: red;
+			border: 2px solid red;
+		}
+		.divClose{
+			display: none;
+		}
+		
+	</style>
+	<header class="header">
+		<script>
+			showHeader();
+		</script>
+	</header>
+	
+	<main>
+		<form id="orderForm"><!--action="mail.php"-->
+			<div class="ts">
+			</div>
+			<label class="label-main">
+				ОФОРМЛЕНИЕ ЗАКАЗА
+			</label>
+
+	</main>
+	<div id="mainDiv">
+		<!-- <form id="orderFormValidation"> -->
+		<div class="divMainRecipOrder">
+			<div style="width: 100%;padding: 7px; ">
+
+				<div class="recipment">
+					<p class="poluch">ПОЛУЧАТЕЛЬ</p>
+				</div>
+				<div class="recipment" id="customerInfo">
+
+					<div class="divForm">
+						<div class="form">
+
+							<h4 class="form_title">Информация о получателе</h4>
+							<div class="form_group">
+								<input class="form_input base" class="input js-input" name="FIO" id="inputCustomer" placeholder=" " type="text" maxlength="40" required>
+								<label class="form_label" for="inputCustomer">*Фамилия и имя получателя</label>
+							</div>
+
+							<div class="form_group">
+								<input class="form_input base" class="input js-input" name="phone" id="formPhone" placeholder=" " maxlength="20" required>
+								<label class="form_label" for="formPhone">*Телефон</label>
+							</div>
+
+							<div class="form_group">
+								<input class="form_input" class="input js-input" name="email" id="formEmail" placeholder=" " maxlength="40" required>
+								<label class="form_label" for="formEmail">Почта (E-mail)</label>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+				<div class="recipment" id="recipmentDelivery">
+					<p class="poluch">ДОСТАВКА</p>
+					<div id="DeliveryOnOff">
+
+						<input type="checkbox" onclick="verifDelivery()" name="btnDelivery" id="btnDelivery" class="ios-toggle" checked />
+						<label for="btnDelivery" class="btnDelivery-label" data-off="Не доставляем" data-on="Доставляем">
+						</label>
+
+					</div>
+				</div>
+
+				<div class="recipment divClose" id="recipmentInfo" style="display: none;">
+
+					<div class="divForm" style="height:100%; margin-bottom: 0%;">
+						<div class="form">
+							<h4 class="form_title">Информация о доставке</h4>
+							<div class="form_group">
+								<input class="form_input full" value="г. Краснодар" class="input js-input" name="addressCity" id="inputAddressFirst" placeholder=" "  readonly>
+								<label class="form_label" for="inputAddressFirst">*Город</label>
+							</div>
+							<div class="form_group">
+								<input class="form_input full" class="input js-input" name="addressFirst" id="inputAddressFirst" placeholder=" ">
+								<label class="form_label" for="inputAddressFirst">*Улица и дом</label>
+							</div>
+
+							<div class="form_group">
+								<input class="form_input full" class="input js-input" name="addressSecond" id="inputAddressSecond" placeholder=" ">
+								<label class="form_label" for="inputAddressSecond">*Квартира, подъезд, этаж</label>
+							</div>
+
+							<div class="form_group">
+								<input class="form_input full" class="input js-input" id="inputDomofon" placeholder=" " name="inputDomofon">
+								<label class="form_labelLong" for="inputDomofon">Домофон или другая полезная информация</label>
+								<label class="form_labelShort" for="inputDomofon">Домофон</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+		
+		<div class="secondBlockMainRecipOrder" style="padding:7px;">
+
+			<div class="recipment">
+					<p class="poluch" style="margin-right: 20px;">Информация о заказе</p>
+			</div>
+
+			<div class="recipment" id="recipmentOrderFirst">
+				<div>
+					<div>
+						<p style="margin-top: 10px;" class="numProd" id="countProd">Нет товаров</p>
+					</div>
+					<div>
+						
+						<!-- <p class="sales">Акции</p> -->
+					</div>
+
+				</div>
+				<div style="display: flex; margin-top: 10px; margin-bottom: 10px;">
+					<div>
+						<p class="result">Итого: </p>
+					</div>
+					<div>
+						<p class="result" id="resultPrice">0 Р</p>
+					</div>
+				</div>
+			</div>
+			<div class="recipment" id="recipmentOrderFirst" style="height: 195px;">
+
+				<div style="display: flex; margin-top: 10px; margin-bottom: 10px;">
+					<div>
+						<p class="result" id="getTypeOrder"></p>
+						<p class="result" style="margin-top: 5%;" id="getTypeOrderAddress"></p>
+					</div>
+					
+				</div>
+</div>
+				<!-- <fieldset>
+					<legend>Выберите способ оплаты</legend>
+					<div>
+						<input type="radio" value="1" name="paymentInShop">
+						<label>Оплата онлайн</label>
+						<input type="radio" value="0" name="paymentInShop" checked>
+						<label>Оплата при получении</label>
+					</div>
+				</fieldset> -->
+
+				<!-- <div>
+					<div class="form_radio">
+						<input id="radio-1" type="radio" name="paymentInShop" value="0" checked>
+						<label for="radio-1">Оплата при получении</label>
+					</div>
+					<div class="form_radio">
+						<input id="radio-2" type="radio" name="paymentInShop" value="1">
+						<label for="radio-2">Оплата онлайн</label>
+					</div>
+				</div> -->
+
+				<!-- <div class="btnOrderDiv">
+					<button href="" type="submit" id="sendButton" class="closing-button"><span>Заказать</span></button>
+				</div> -->
+
+
+			<div class="recipment" id="recipmentOrderSecond">
+				<div>
+					<div class="form_radio">
+						<input id="radio-1" type="radio" name="paymentInShop" value="0" checked="">
+						<label for="radio-1">Оплата при получении</label>
+					</div>
+					<div class="form_radio">
+						<input id="radio-2" type="radio" name="paymentInShop" value="1">
+						<label for="radio-2">Оплата онлайн</label>
+					</div>
+				</div>
+</form>
+				<div class="btnOrderDiv">
+					<button href="" type="submit" id="sendButton" class="closing-button"><span>Заказать</span></button>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+
+var inputs = document.getElementById('btnDelivery').checked = false;
+
+//let t = document.querySelector(".recipment .divClose").style.display = "none";
+
+	let form = document.getElementById("orderForm"),
+		formInputsBase = document.querySelectorAll('.base'),
+		formInputsDelivery = document.querySelectorAll('.full'),
+		formInputsFull = formInputsBase + formInputsDelivery,
+		inputEmail = document.querySelector('#formEmail'),
+		inputPhone = document.querySelector('#formPhone'),
+		inputCheckBox = document.querySelector('#btnDelivery'),
+		sendButton = document.getElementById("sendButton");
+
+	function validateEmail(email) {
+		let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(String(email).toLowerCase());
+	}
+
+	// function validatePhone(phone) {
+	// 	let re = /^[0-9\s()]*$/;
+	// 	return re.test(String(phone));
+	// }
+
+	const radioBtnTypePay = document.querySelectorAll('input[name="paymentInShop"]');
+	
+	sendButton.addEventListener("click", () => {
+
+			let selectedPayment;
+			for (const radioBtnTypePayOne of radioBtnTypePay) {
+				if (radioBtnTypePayOne.checked) {
+					selectedPayment = radioBtnTypePayOne.value;
+					console.log(selectedPayment);
+					break;
+				}
+			}
+
+			if (selectedPayment === '0') {
+				inputEmail.classList.remove('base');
+				inputEmail.classList.remove('error');
+			} else if (selectedPayment === '1') {
+				inputEmail.classList.add('base');
+				inputEmail.classList.remove('error');
+			}
+
+			formInputsBase = document.querySelectorAll('.base');
+
+			let emailVal = inputEmail.value,
+				phoneVal = inputPhone.value,
+				emptyInputs = Array.from(formInputsBase).filter(input => input.value === '');
+			let emptyInputsDelivery = Array.from(formInputsDelivery).filter(input => input.value === '');
+
+			
+
+			if (!inputCheckBox.checked) {
+
+				formInputsBase.forEach(function(input) {
+					if (input.value === '') {
+						input.classList.add('error');
+
+					} else {
+						input.classList.remove('error');
+					}
+				});
+
+				if (emptyInputs.length !== 0) {
+					console.log('какие-то инпуты не заполнены (базовые)');
+					return false;
+				} else {
+					if (!validateEmail(emailVal)) {
+						console.log('email not valid');
+						inputEmail.classList.add('error');
+						return false;
+					} else {
+						inputEmail.classList.remove('error');
+					}
+
+					// if (!validatePhone(phoneVal)) {
+					// 	console.log('нет цифарак');
+					// 	inputPhone.classList.add('error');
+					// 	return false;
+					// } else {
+					// 	inputPhone.classList.remove('error');
+					// }
+						sendForm();
+					console.log("Форма должна быть отправлена");
+				}
+
+				/*if (!validateEmail(emailVal)) {
+					console.log('email not valid');
+					inputEmail.classList.add('error');
+				} else {
+					inputEmail.classList.remove('error');
+				}*/
+
+			} else if (inputCheckBox.checked) {
+
+				formInputsBase.forEach(function(input) {
+					if (input.value === '') {
+						input.classList.add('error');
+
+					} else {
+						input.classList.remove('error');
+					}
+				});
+
+				formInputsDelivery.forEach(function(input) {
+					if (input.value === '') {
+						input.classList.add('error');
+					} else {
+						input.classList.remove('error');
+					}
+				});
+
+				if (emptyInputs.length !== 0) {
+					console.log('какие-то инпуты не заполнены (базовые)');
+					return false;
+				} else if (emptyInputsDelivery.length !== 0) {
+					console.log('какие-то инпуты не заполнены (доставка)');
+					return false;
+				} else {
+					if (!validateEmail(emailVal)) {
+						console.log('email not valid');
+						inputEmail.classList.add('error');
+						return false;
+					} else {
+						inputEmail.classList.remove('error');
+					}
+					// if (!validatePhone(phoneVal)) {
+					// 	console.log('нет цифарак');
+					// 	inputPhone.classList.add('error');
+					// 	return false;
+					// } else {
+					// 	inputPhone.classList.remove('error');
+					// }
+					sendForm();
+					console.log("Форма должна быть отправлена");
+				}
+
+
+			}
+
+			/*if (!validateEmail(emailVal)) {
+					console.log('email not valid');
+					inputEmail.classList.add('error');
+					return false;
+				} else {
+					inputEmail.classList.remove('error');
+				}*/
+
+
+			// if (inputCheckBox.checked) {
+
+			// } else {
+
+			// };
+		}
+
+	);
+</script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+	let dataLoad = {};
+	var cart = new Map();
+	var cartSecond = new Map();
+	let sizeProduct = "";
+	let countProduct = 0;
+	let typeProduct = 0;
+
+
+	function getCart() {
+		dataLoad = JSON.parse(localStorage.getItem('cart'));
+		if (dataLoad.length != 0) {
+			for (let value of dataLoad) {
+				cartSecond.set(value[0], value[1]);
+				if (value[1][5] == 3) {
+					getApiProduct('https://api.obuvashka23.ru/Shoes', value[1][5], value[1][4], value[1][3]);
+				}
+				if (value[1][5] == 1) {
+					getApiProduct('https://api.obuvashka23.ru/Accessories', value[1][5], value[1][4], value[1][3]);
+				}
+				if (value[1][5] == 2) {
+					getApiProduct('https://api.obuvashka23.ru//Bags/filter', value[1][5], value[1][4], value[1][3]);
+				}
+			}
+		}
+
+
+	}
+	let productCountToCart = 0;
+	async function getApiProduct(url, type, count, size) {
+		let res = await fetch(url);
+		let products = await res.json();
+		products.forEach((data) => {
+			if (cartSecond.has(data.vendorCode)) {
+				let elements = [];
+				elements.push(data.id);
+				elements.push(data.title);
+				elements.push(data.price - (data.price * (data.discount / 100)));
+
+				if (type == 3) {
+					let request = new XMLHttpRequest();
+					request.open('GET', 'https://api.obuvashka23.ru/ShoesSize?idShoes=' + data.id, false);
+					request.send(null);
+					if (request.status === 200) {
+						let arrayResponse = JSON.parse(request.responseText);
+						for (let value of arrayResponse) {
+							if (value.size == size) {
+								elements.push(size);
+								if (count > 0 && count < 5) {
+									elements.push(count);
+									elements.push(type);
+									cart.set(data.vendorCode, elements);
+								}
+							}
+						}
+					}
+				}
+				if (type == 1 || type == 2) {
+					elements.push(size);
+					if (count > 0 && count < 5) {
+						elements.push(count);
+						elements.push(type);
+						cart.set(data.vendorCode, elements);
+					}
+				}
+
+			}
+
+		});
+		productCountToCart++;
+		showCart();
+	}
+
+
+	function showCart() {
+		var out = "";
+		var nm = 0;
+		var count = 0;
+
+		for (let value of cart) {
+			nm += value[1][4] * value[1][2];
+			count++;
+		}
+		let cartArray = [];
+		cartArray = Array.from(cart, ([name, value]) => ({
+			name,
+			value
+		}));
+		var cartMap = new Map();
+		cartMap = Array.from(cartArray, ({
+			name,
+			value
+		}) => ([name, value]));
+		localStorage.setItem('cart', JSON.stringify(cartMap));
+
+		
+		out += "<input type=\"hidden\" name=\"dataProduct\" value=\"" + encodeURI(JSON.stringify(cartArray)) + "\">";
+		$('.ts').html(out);
+
+		if(productCountToCart == dataLoad.length){
+		
+		document.getElementsByClassName("result")[0].style.display = "block";
+
+		let resultPrice = document.getElementById("resultPrice");
+		resultPrice.innerHTML = nm + " ₽";
+
+		let countProd = document.getElementById("countProd");
+		countProd.innerHTML = "Кол-во: " + count + " товар.";
+
+		document.getElementById("sendButton").disabled = false;
+
+		}else{
+			let resultPrice = document.getElementById("resultPrice");
+		resultPrice.innerHTML = "Загрузка корзины... ";
+			document.getElementsByClassName("result")[0].style.display = "none";
+		let countProd = document.getElementById("countProd");
+		countProd.innerHTML = "";
+			document.getElementById("sendButton").disabled = true;
+
+		}
+
+
+
+	}
+
+	getCart();
+
+
+
+
+	$(document).ready(function() {
+		$("#btnDelivery").click(function() {
+			$(".divClose").slideToggle();
+		});
+	});
+	countProductInCart();
+
+	function clearCart() {
+		getCart();
+		//localStorage.setItem('cart', JSON.stringify(""));
+	}
+
+
+	showFooter();
+</script>
+<script>
+				document.getElementById("getTypeOrder").innerText = "Cпособ получения: Сомовывоз";
+				//document.getElementById("getTypeOrderAddress").innerText = "Адрес: г. Краснодар, ул. Героев-Разведчиков, д. 21/2";
+
+	function verifDelivery() {
+		if (document.getElementById("btnDelivery").checked) {
+			document.getElementById("inputAddressFirst").required = true;
+			document.getElementById("getTypeOrder").innerText = "Cпособ получения: Доставка";
+			document.getElementById("getTypeOrderAddress").innerText =  "";
+
+		}else{
+			document.getElementById("getTypeOrder").innerText = "Cпособ получения: Сомовывоз";
+			//document.getElementById("getTypeOrderAddress").innerText = "Адрес: г. Краснодар, ул. Героев-Разведчиков, д. 21/2";
+
+
+		}
+	}
+
+	function sendForm() {
+		verifDelivery();
+		let form = document.getElementById("orderForm");
+		form.action = 'mail.php';
+		form.method = 'POST';
+
+		form.submit();
+
+
+
+		document.getElementById("inputCustomer").value = "";
+		document.getElementById("formPhone").value = "";
+		document.getElementById("formEmail").value = "";//addressFirst
+		document.getElementById("addressFirst").value = "";//addressFirst
+		document.getElementById("inputAddressFirst").value = "";
+		document.getElementById("inputAddressSecond").value = "";
+		document.getElementById("inputDomofon").value = "";
+	}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.maskedinput/1.3.1/jquery.maskedinput.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#formPhone').inputmask('+7(999)999 99 99', { "placeholder": "" });
+            //$.mask.definitions['A'] = "[a-zA-Z0-9а-яА-ЯёЁ. ]";
+        });
+
+        countProductInCart();
+    </script>
+</body>
+
+</html>

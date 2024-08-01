@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <link rel="icon" type="icon" href="https://obuvashka23.ru/img/logoObuvashkaWeb.png">
+  <title>Поиск | Обувашка</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://obuvashka23.ru/css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://obuvashka23.ru/css/fontstyle.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://obuvashka23.ru/resources/components/index.js"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style>
+  #result {
+   position: absolute;
+   width: 100%;
+   max-width:870px;
+   cursor: pointer;
+   overflow-y: auto;
+   max-height: 400px;
+   box-sizing: border-box;
+   z-index: 101;
+  }
+  .link-class:hover{
+   background-color:#f1f1f1;
+  }
+  #burger {
+    z-index: 105;
+  }
+  .menu {
+    z-index: 103;
+  }
+  </style>
+ </head>
+ <body>
+  <header class="header">
+    <div style="justify-content: space-between;" class="start">
+      <button style="margin-right: 0;" class="header_burger-btn" id="burger" onclick="blockFix()">
+        <span></span><span></span><span></span>
+      </button>
+      <label class="title"><a href="https://obuvashka23.ru/" style="all:unset;">ОБУВАШКА</a></label>
+      <button class="btnCart" style="margin-top: 1%;
+        margin-bottom: 1%;
+        border-radius: 10px;
+        borber: none;
+        border-color: #fff;
+        border-style: solid;
+        background: #FFF;
+        padding-left: 2%;
+        font-size: 12pt;
+        color: #706f6f;"
+      width: 5px;
+      z-index:1;">
+        <a href="https://obuvashka23.ru/cart">
+          <img src="https://obuvashka23.ru/img/cart.png" style="width:30px;"/>
+        </a>
+      <p id="countInCart" style="margin: 0;
+      margin-top: -50%;
+      background: #1da1f2;
+      font-size: 14pt;
+      width: 24px;
+      border-radius: 12px;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      z-index:2;
+      position: relative;
+      ">1</p>
+      </button>
+    </div>
+    <br>
+    <div class="menu" >
+      <a href="https://obuvashka23.ru/catalogs/accessories/">АКСEССУАРЫ</a>
+      <a href="">АКЦИИ</a>
+      <a href="https://obuvashka23.ru/catalogs/bag/">РЮКЗАКИ</a>
+      <a href="https://obuvashka23.ru/catalogs/shoes/">ОБУВЬ</a>
+      <a href="https://obuvashka23.ru/catalogs/markdown/">УЦЕНКА</a>
+    </div>
+  </header>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("burger").addEventListener("click", function() {
+    document.querySelector("header").classList.toggle("open");
+    let menuHeight = window.innerHeight +'px';
+    let menuWidth = '-' + window.innerWidth-0 +'px';
+
+            document.querySelector(".menu").style.height = menuHeight;
+            document.querySelector(".menu").style.width = '100%';
+            document.querySelector(".menu").style.left = menuWidth;
+        
+    })
+  })
+  </script>
+  <!-- <header class="header">
+    <div class="start">
+      <button class="header_burger-btn" id="burger" onclick="blockFix()">
+        <span></span><span></span><span></span>
+      </button>
+      <label class="title"><a href="https://obuvashka23.ru/" style="all:unset;">ОБУВАШКА</a></label>
+      <input align="center" type="text"  name="search" id="search" placeholder="Поиск" class="form-control">
+      <button class="btnSearch" style="margin-top: 1%;
+        margin-bottom: 1%;
+        margin-left: 7%;
+        border-radius: 10px;
+        borber: none;
+        border-color: #fff;
+        border-style: solid;
+        background: #FFF;
+        width: 35%;
+        padding-left: 2%;
+        font-size: 12pt;
+        color: #706f6f;">
+        <a href="https://obuvashka23.ru/search/index.html">
+          <img src="https://obuvashka23.ru/img/search.png" style="width:30px;"/>
+        </a></button>
+      <button class="btnCart" style="margin-top: 1%;
+        margin-bottom: 1%;
+        border-radius: 10px;
+        borber: none;
+        border-color: #fff;
+        border-style: solid;
+        background: #FFF;
+        padding-left: 2%;
+        font-size: 12pt;
+        color: #706f6f;"
+      width: 5px;
+      z-index:1;">
+        <a href="https://obuvashka23.ru/cart">
+          <img src="https://obuvashka23.ru/img/cart.png" style="width:30px;"/>
+        </a>
+      <p id="countInCart" style="margin: 0;
+      margin-top: -50%;
+      background: #1da1f2;
+      font-size: 14pt;
+      width: 24px;
+      border-radius: 12px;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      z-index:2;
+      position: relative;
+      ">1</p>
+      </button>
+    </div>
+    <ul class="list-group" id="result"></ul>
+    <br>
+    <div class="menu" >
+      <a href="https://obuvashka23.ru/catalogs/accessories/">АКСEССУАРЫ</a>
+      <a href="">АКЦИИ</a>
+      <a href="https://obuvashka23.ru/catalogs/bag/">РЮКЗАКИ</a>
+      <a href="https://obuvashka23.ru/catalogs/shoes/">ОБУВЬ</a>
+      <a href="https://obuvashka23.ru/catalogs/markdown/">УЦЕНКА</a>
+    </div>
+  </header> -->
+  <br /><br />
+  <div class="container" style="max-width:900px;">
+   <br /><br />
+   <div align="center">
+    <input type="text" name="search" id="search" placeholder="Что хотите найти?" class="form-control" />
+   </div>
+   <ul class="list-group" id="result"></ul>
+   <br />
+  </div>
+  <script>
+    showFooter();
+  </script>
+ </body>
+</html>
+
+<script>
+$(document).ready(function(){
+ $.ajaxSetup({ cache: false });
+ $('#search').keyup(function(){
+  $('#result').html('');
+  $('#state').val('');
+  var searchField = $('#search').val();
+  var expression = new RegExp(searchField, "i");
+  $.getJSON('https://api.obuvashka23.ru/Shoes', function(data) {
+   $.each(data, function(key, value){
+    if (value.title.search(expression) != -1 || value.description.search(expression) != -1)
+    {
+     $('#result').append('<li class="list-group-item link-class"> '+value.title+' | <span class="text-muted">'+value.description+'</span><span class="text-muted"> | '+value.price+'₽</span></li>');
+    }
+   });   
+  });
+ });
+ 
+ $('#result').on('click', 'li', function() {
+  var click_text = $(this).text().split('|');
+  $('#search').val($.trim(click_text[0]));
+  $("#result").html('');
+ });
+});
+</script>

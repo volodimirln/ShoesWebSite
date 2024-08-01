@@ -1,0 +1,704 @@
+/*Стили radiobutton*/
+
+.form_radio {
+	margin-bottom: 10px;
+}
+
+.form_radio input[type=radio] {
+	display: none;
+}
+
+.form_radio label {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 25px;
+	margin-right: 0;
+	line-height: 18px;
+	user-select: none;
+
+	font-size: 12pt;
+    margin: 0 0 0 20px;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 600;
+}
+
+.form_radio label:before {
+	content: "";
+	display: inline-block;
+	width: 17px;
+	height: 18px;
+	position: absolute;
+	left: 0;
+	bottom: 1px;
+	background: url(https://snipp.ru/img/radio-1.png) 0 0 no-repeat;
+}
+
+.form_radio input[type=radio]:checked + label:before {
+	background: url(https://snipp.ru/img/radio-2.png) 0 0 no-repeat;
+}
+
+.form_radio label:hover:before {
+	filter: brightness(120%);
+}
+
+.form_radio input[type=radio]:disabled + label:before {
+	filter: grayscale(100%);
+}
+
+.divMainRecipOrder {
+	display: flex;
+	width: 65%;
+}
+.secondBlockMainRecipOrder {
+	width: 35%; 
+	margin-left: 3%;
+	margin-top: 0.7%;
+}
+.recipment {
+			margin-top: 2%;
+			margin-bottom: 5%;
+			width: 100%;
+			height: 70px;
+			background-color: #fff;
+			border-radius: 15px;
+			display: flex;
+			align-items: center;
+			box-shadow: 1px 3px 10px #00000059;
+		}
+		.recipment div {
+			/*margin-top: 3%;
+			margin-bottom: 4%;
+			width: 90%;*/
+			/*height: 25px;*/
+			/*background-color: #fff;
+			border-radius: 5px;*/
+		}
+		#customerInfo {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			height: 65%;
+			min-height: 225px;
+			max-height: 230px;
+		}
+		#recipmentInfo {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			height: 65%;
+			/*min-height: 190px;*/
+			max-height: 280px;
+		}
+		.recipment p {
+			font-size: 18pt;
+		    margin: 0 0 0 20px;
+		    font-family: 'Alegreya Sans', sans-serif;
+		    font-weight: 1000;
+		    font-style: italic;
+		    text-align: left;
+		}
+		.divForm {
+			display: flex;
+			justify-content: center;
+			margin: 0;
+			padding: 0px 20px;
+			height: 0px;
+			margin-top: 3%;
+			margin-bottom: 4%;
+			width: 90%;*/
+			/*height: 25px;*/
+			background-color: #fff;
+			border-radius: 5px;
+		}
+		.form {
+			width: 100%;
+			/*padding: 10px;*/
+			border-radius: 10px;
+			/*box-shadow: 0 4px 16px #ccc;*/
+			font-family: sans-serif;
+			letter-spacing: 1px;
+		}
+		.form_input,
+		.form_buttonDelivery {
+			font-family: sans-serif;
+			letter-spacing: 1px;
+			font-size: 18px;
+		}
+		.form h4 {
+			font-size: 15pt;
+		}
+		.form_title {
+			text-align: center;
+			margin: 0 0 20px 0;
+			font-weight: normal;
+			text-align: left;
+		}
+		.form_group {
+		    position: relative;
+		    margin-bottom: 30px;
+		}
+		.form_label {
+			position: absolute;
+			top: 0;
+			z-index: -0.1;
+			color: #9e9e9e;
+			transition: 0.3s;
+			display: flex;
+			margin-left: 28px;
+			margin-top: 3px;
+			font-size: 14pt;
+		}
+		.form_labelLong {
+			position: absolute;
+			top: 0;
+			z-index: -0.1;
+			color: #9e9e9e;
+			transition: 0.3s;
+			display: flex;
+			margin-left: 28px;
+			margin-top: 3px;
+			font-size: 14pt;
+		}
+		.form_labelShort {
+			display: none;
+			position: absolute;
+			top: 0;
+			z-index: -0.1;
+			color: #9e9e9e;
+			transition: 0.3s;
+			display: flex;
+			margin-left: 28px;
+			margin-top: 3px;
+			font-size: 14pt;
+		}
+		.form_input {
+			width: 100%;
+			padding-left: 25px;
+			background: url("../../img/contactBlack.png") no-repeat left;
+			background-size: 23px;
+			border: none;
+			background-color: transparent;
+			outline: none;
+			transition: 0.3s;
+			margin-left: 1pt;
+			padding-top: 5px;
+			border: 1px solid;
+    		border-radius: 5px;
+		}
+		#formPhone {
+			padding-left: 25px;
+			background: url("../../img/phoneBlue.png") no-repeat left;
+			background-size: 20px;
+		}
+		#formEmail {
+			padding-left: 25px;
+			background: url("../../img/messageOrange.png") no-repeat left;
+			background-size: 20px;
+			background-position-x: 0.6%;
+		}
+		#inputAddressFirst {
+			padding-left: 25px;
+			background: url("../../img/homeGreen.png") no-repeat left;
+			background-size: 21px;
+			background-position-x: 0.6%;
+		}
+		#inputAddressSecond {
+			padding-left: 25px;
+			background: url("../../img/geoRed.png") no-repeat left;
+			background-size: 18px;
+			background-position-x: 0.8%;
+		}
+		#inputDomofon {
+			padding-left: 25px;
+			background: url("../../img/domofonViolet.png") no-repeat left;
+			background-size: 24px;
+		}
+		.form_input:focus {
+			border-bottom: 1px solid #1a73a8;
+		}
+		.form_input:focus ~ .form_label,
+		.form_input:not(:placeholder-shown) ~ .form_label {
+			top: -18px;
+			font-size: 12px;
+			color: #000;
+			margin-left: 0px;
+		}
+		.form_input:focus ~ .form_labelLong,
+		.form_input:not(:placeholder-shown) ~ .form_labelLong {
+			top: -18px;
+			font-size: 12px;
+			color: #000;
+			margin-left: 0px;
+		}
+		.form_input:focus ~ .form_labelShort,
+		.form_input:not(:placeholder-shown) ~ .form_labelShort {
+			top: -18px;
+			font-size: 12px;
+			color: #000;
+			margin-left: 0px;
+		}
+		.poluch {
+			font-size: 16pt;
+		    margin: 0 0 0 10px;
+		    font-family: 'Alegreya Sans', sans-serif;
+		    font-weight: 1000;
+		    font-style: italic;
+		  }
+
+
+		  /*Стили кнопки IOS*/
+*,*:before,*:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	/*переход*/
+	/*-webkit-transition:.25s ease-in-out;
+	-moz-transition:.25s ease-in-out;
+	-o-transition:.25s ease-in-out;
+	transition:.25s ease-in-out;*/
+	outline: none;
+}
+#DeliveryOnOff {
+	width: 60px;
+	margin: 5px auto;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	margin-left: 5%;
+}
+.ios-toggle, .ios-toggle:active {
+	position: absolute;
+	height: 0;
+	width: 0;
+	opacity: 0;
+	border: none;
+	outline: none;
+}
+.btnDelivery-label {
+	display: block;
+	position: relative;
+	padding: 10px;
+	margin-bottom: 20px;
+	font-size: 15px;
+	line-height: 10px;
+	width: 100%;
+	height: 30px;
+	/*Оконтовка*/
+	-webkit-border-radius:18px;
+	-moz-border-radius:18px;
+	border-radius: 18px;
+	background: #F8F8F8;
+	cursor: pointer;
+	margin: 0;
+}
+.btnDelivery-label:before {
+	content: '';
+	display: block;
+	position: absolute;
+	z-index: 1;
+	line-height: 34px;
+	text-indent: 40px;
+	height: 30px;
+	width: 30px;
+
+	-webkit-border-radius:100%;
+	-moz-border-radius:100%;
+	border-radius: 100%;
+	top: 0px;
+	left: 0px;
+	right: auto;
+	background: white;
+	/*тень*/
+	-webkit-box-shadow:0 3px 3px
+	rgba(0, 0, 0, .2), 0 0 0 2px #ddd;
+	-moz-box-shadow: 0 3px 3px 
+	rgba(0, 0, 0,.2), 0 0 0 2px #ddd;
+	box-shadow: 0 3px 3px 
+	rgba(0, 0, 0,.2), 0 0 0 2px #ddd;
+}
+.btnDelivery-label:after {
+	content: attr(data-off);
+	display: block;
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	left: -125px;
+	padding: 10px;
+	height: 100%;
+	width: 300px;
+	text-align: right;
+	color: #5C5C5C;
+	white-space: nowrap;
+}
+.ios-toggle:checked + .btnDelivery-label {
+	/*Тень*/
+	-webkit-box-shadow:inset 0 0 0 20px
+	rgba(19, 191, 17, 1), 0 0 0 2px
+	rgba(19, 191, 17, 1);
+	-moz-box-shadow:inset 0 0 0 20px
+	rgba(19, 191, 17, 1), 0 0 0 2px
+	rgba(19,171, 17, 1);
+	box-shadow:inset 0 0 0 20px
+	rgba(19, 191, 17, 1), 0 0 0 2px
+	rgba(19, 171, 17, 1);
+}
+.ios-toggle:checked + .btnDelivery-label:before {
+	left: calc(100% - 30px);
+	/*Тень*/
+	-webkit-box-shadow: 0 0 0 2px
+	transparent, 0 3px 3px rgba(0, 0, 0,.3)
+	-moz-box-shadow: 0 0 0 2px
+	transparent, 0 3px 3px rgba(0, 0, 0,.3);
+	box-shadow: 0 3px 3px rgba(0, 0, 0, .3)
+	transparent, 0 3px 3px rgba(0, 0, 0, .3);
+}
+.ios-toggle:checked + .btnDelivery-label:after {
+	content: attr(data-on);
+	left: 67px;
+	width: 36px;
+}
+
+/*Checkbox доставка*/
+#btnDelivery + .btnDelivery-label {
+	/*Тень*/
+	-webkit-box-shadow: inset 0 0 0 0px
+	#B5C6B8, 0 0 0 2px #DDD;
+	-moz-box-shadow: inset 0 0 0 0px
+	#B5C6B8, 0 0 0 2px #DDD;
+	box-shadow: inset 0 0 0 0px
+	#B5C6B8, 0 0 0 2px #DDD;;
+}
+#btnDelivery:checked + .btnDelivery-label {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-box-shadow: inset 0 0 0 18px
+	#97cded, 0 0 0 2px
+	#97cded;
+	-moz-box-shadow: inset 0 0 0 18px
+	#97cded, 0 0 0 2px 
+	#97cded;
+	box-shadow: inset 0 0 0 18px
+	#97cded, 0 0 0 2px
+	#97cded;
+}
+
+#recipmentOrderFirst {
+	/*height:150px; 
+	align-items: flex-start; 
+	display: flex;
+    flex-direction: column;
+    position: relative;*/
+    height: 125px;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+}
+
+#recipmentOrderSecond {
+	/*height:120px; 
+	align-items: flex-start; 
+	display: flex;
+    flex-direction: column;
+    position: relative;*/
+    height: 160px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+}
+
+/*#recipmentOrder:nth-child(n + 1) {
+	align-items: flex-start;
+}
+#recipmentOrder:nth-child(n + 2) {
+	align-items: center;
+}*/
+
+/*Кнопка заказа*/
+
+/*старая кнопка*/
+
+/*.btnOrder {
+	display: inline-block;
+	border-radius: 5px;
+	background: #8ad4ff;
+	border: none;
+	color: #fff;
+	text-align: center;
+	font-size: 25px;
+	padding: 20px;
+	width: 200px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+}
+.btnOrder span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+.btnOrder span:after {
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+.btnOrder:hover span {
+	font-size: 26px;
+	padding: 0;
+	margin: 0;
+}
+.btnOrder:hover span:after {
+	opacity: 1;
+	right: 0;
+}*/
+
+
+/*Старая кнопка*/
+
+/*.btnOrderDiv {
+  	position: absolute;
+  	left: 50%;
+  	top: 50%;
+  	transform: translate(-50%, 21%);
+}*/
+
+/*Новая кнопка*/
+
+/*.closing-button {
+	text-decoration: none;
+	display: inline-block;
+	margin: 10px;
+	color: white;
+	box-shadow: 0 0 0 2px white;
+	padding: 20px 0;
+	width: 150px;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 10px;
+    background: #97cded;
+}
+.closing-button span {
+	font-family: 'Alegreya Sans', sans-serif;
+	font-weight: bold;
+	position: relative;
+	z-index: 2;
+}
+.closing-button:before, .closing-button:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.closing-button:before {
+	transform: translateX(-100%);
+	background: blue;
+	transition: transform .3s cubic-bezier(.55, .055, .675, .19);
+}
+.closing-button:after {
+	background: #413ad5;
+	transform: translateX(100%);
+	transition: transform .3s cubic-bezier(.16, .73, .58, .62) .3s;
+}
+.closing-button:hover:before, .closing-button:hover:after {
+	transform: translateX(0);
+}*/
+
+.closing-button {
+	padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin: 10px;
+    width: 150px;
+    border: solid 1px transparent;
+    border-radius: 7px;
+    padding: 20px 0;
+    color: #fff;
+    background-color: #97cded;
+    transition: 0.3s;
+    letter-spacing: 0.5px;
+}
+
+.closing-button span {
+	font-size: 20px;
+}
+
+.closing-button:active {
+	transform: translateY(1px);
+    filter: saturate(150%);
+}
+
+.closing-button:hover, .closing-button:focus {
+	color: #97cded;
+    background-color: transparent;
+    border-color: currentColor;
+}
+
+..closing-button::-moz-focus-iner {
+    border: none;
+}
+
+@media screen and (max-width: 1480px) {
+	.secondBlockMainRecipOrder {
+		width: 40%;
+	}
+}
+
+@media screen and (max-width: 970px) {
+	.secondBlockMainRecipOrder {
+		width: 43%;
+	}
+	.form_radio label {
+		font-size: 11pt;
+	}
+}
+
+
+/*Подвал*/
+footer {
+	margin-top: 110px;
+}
+
+@media screen and (max-width: 1310px) {
+	.form_labelLong {
+		display: block;
+		font-size: 12.5pt;
+	}
+	.form_labelShort {
+		display: none;
+	}
+	.form_label {
+		font-size: 12.5pt;
+	}
+}
+
+@media screen and (max-width: 1230px) {
+	.form_labelLong {
+		display: block;
+		font-size: 12pt;
+	}
+	.form_labelShort {
+		display: none;
+	}
+	.form_label {
+		font-size: 12pt;
+	}
+}
+
+@media screen and (max-width: 1230px) {
+	.form_labelLong {
+		display: block;
+		font-size: 11pt;
+	}
+	.form_labelShort {
+		display: none;
+		font-size: 11pt;
+		margin-top: 5px;
+	}
+	.form_input {
+		padding-top: 3px;
+	}
+	.form_label {
+		font-size: 11pt;
+		margin-top: 5px;
+	}
+	.form_input:focus ~ .form_label,
+		.form_input:not(:placeholder-shown) ~ .form_label {
+			top: -20px;
+			font-size: 12px;
+			color: #000;
+			margin-left: 0px;
+		}
+	.form_input:focus ~ .form_labelShort,
+		.form_input:not(:placeholder-shown) ~ .form_label {
+		top: -20px;
+		font-size: 12px;
+		color: #000;
+		margin-left: 0px;
+	}
+}
+
+@media screen and (max-width: 865px) {
+	.form_labelShort {
+		display: block;
+	}
+	.form_labelLong {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 620px) {
+	.form_labelShort {
+		display: none;
+	}
+	.form_labelLong {
+		display: block;
+	}
+	.divMainRecipOrder {
+		flex-direction: column;
+		width: 100%;
+	}
+	#customerInfo {
+		min-height: 225px;
+		max-height: 250px;
+	}
+	.secondBlockMainRecipOrder {
+		width: 100%; 
+		margin-left: 0%;
+
+	}
+	
+	
+}
+
+@media screen and (min-width: 620px) {
+#mainDiv{
+		display: flex;
+		justify-content: space-between;
+
+	}
+}
+@media screen and (max-width: 505px) {
+	.form h4 {
+	    font-size: 14pt;
+	}
+	.form_labelShort {
+		display: block;
+	}
+	.form_labelLong {
+		display: none;
+	}
+	#recipmentDelivery {
+	    align-content: space-around;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: flex-start;
+	    justify-content: space-evenly;
+	    height: 110px;
+	}
+	.ios-toggle:checked + .btnDelivery-label:after {
+    content: attr(data-on);
+    left: 80px;
+    width: 36px;
+	}
+	.btnDelivery-label:after {
+		left: -100px;
+	}
+}
